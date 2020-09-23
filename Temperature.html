@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temp Converter</title>
+</head>
+<body>
+<h2>Nhap do C</h2>
+<input type="number" id="input" onchange="calculate()">
+<p id="output1">F = </p>
+<p id="output2">K = </p>
+</body>
+</html>
+
+<script>
+    let Temperature = function (C) {
+        this.C = C;
+        this.calF = function () {
+            return this.C * (9 / 5) + 32;
+        }
+        this.calK = function () {
+            return this.C + 273.15
+        }
+    }
+
+    function calculate(){
+        let temp = new Temperature(document.getElementById("input").value);
+        let doF = temp.calF();
+        let doK = temp.calK();
+        document.getElementById("output1").innerHTML ="F= " + doF;
+        document.getElementById("output2").innerHTML ="K = " + doK;
+
+    }
+
+</script>
